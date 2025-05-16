@@ -3,7 +3,12 @@
 <div class="row">
   <h1 class="text-center">Edit Campground</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds/<%=campground._id%>?_method=patch" method="post">
+    <form
+      action="/campgrounds/<%=campground._id%>?_method=patch"
+      method="post"
+      novalidate
+      class="validation"
+    >
       <div class="mb-3">
         <label class="form-label" for="title">Title</label>
         <input
@@ -12,7 +17,9 @@
           name="campground[title]"
           id="title"
           value="<%=campground.title%>"
+          required
         />
+        <div class="valid-feedback">looks Good!</div>
       </div>
 
       <div class="mb-3">
@@ -23,8 +30,11 @@
           name="campground[location]"
           id="location"
           value="<%=campground.location%>"
+          required
         />
+        <div class="valid-feedback">looks Good!</div>
       </div>
+
       <div class="mb-3">
         <label class="form-label" for="image">Image Url</label>
         <input
@@ -33,8 +43,11 @@
           name="campground[image]"
           id="image"
           value="<%=campground.image%>"
+          required
         />
+        <div class="valid-feedback">looks Good!</div>
       </div>
+
       <div class="mb-3">
         <label class="form-label" for="price">Campground Price</label>
         <div class="input-group">
@@ -48,8 +61,10 @@
             aria-describedby="price-label"
             name="campground[price]"
             value="<%=campground.price%>"
+            required
           />
           <span class="input-group-text">.00</span>
+          <div class="valid-feedback">looks Good!</div>
         </div>
       </div>
 
@@ -60,10 +75,13 @@
           type="text"
           name="campground[description]"
           id="description"
+          required
         >
 <%=campground.description%></textarea
         >
+        <div class="valid-feedback">looks Good!</div>
       </div>
+
       <div class="mb-3">
         <button class="btn btn-info">Update Campground</button>
       </div>
